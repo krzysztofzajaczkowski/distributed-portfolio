@@ -88,7 +88,7 @@ const Sidebar = ({ open, setOpen }) => {
               {name}
             </Link>
           ))}
-          {button.useFileName ? (
+          {button && button.useFileName && (
             <a
               className="cta-btn"
               href={`/${button.fileName}`}
@@ -98,7 +98,8 @@ const Sidebar = ({ open, setOpen }) => {
             >
               {button.name}
             </a>
-          ) : (
+          )}
+          {button && !button.useFileName && (
             <Link
               className="cta-btn"
               to={button.url}
