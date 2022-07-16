@@ -64,7 +64,7 @@ const Navbar = () => {
           </Link>
         )
       })}
-      {button.useFileName ? (
+      {button && button.useFileName && (
         <a
           className="cta-btn"
           href={`/${button.fileName}`}
@@ -73,7 +73,8 @@ const Navbar = () => {
         >
           {button.name}
         </a>
-      ) : (
+      )}
+      {button && !button.useFileName && (
         <Link className="cta-btn" to={button.url}>
           {button.name}
         </Link>

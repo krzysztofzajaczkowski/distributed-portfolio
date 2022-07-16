@@ -10,14 +10,16 @@ const useDarkMode = () => {
 
     const toggleTheme = event => {
       if (event.matches) {
-        setState({ ...state, darkMode: true })
+        // setState({ ...state, darkMode: true })
+        setState({ ...state, darkMode: false })
       } else {
         setState({ ...state, darkMode: false })
       }
     }
 
     if (darkSchemeQuery.matches) {
-      setState({ ...state, darkMode: true })
+      // setState({ ...state, darkMode: true })
+      setState({ ...state, darkMode: false })
     }
 
     if (darkSchemeQuery.addEventListener) {
