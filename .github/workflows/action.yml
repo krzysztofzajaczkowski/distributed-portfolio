@@ -1,0 +1,21 @@
+name: "Build and deploy"
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: krzysztofzajaczkowski/repo-template-downloader@master
+        with:
+          owner: "krzysztofzajaczkowski"
+          pathToTemplate: ".portfolio/index.mdx"
+          pathToCoverImage: ".portfolio/cover-image.png"
+          outputDirectory: "./content/index/projects"
+          username: "krzysztofzajaczkowski"
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          # input params if there is any
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
